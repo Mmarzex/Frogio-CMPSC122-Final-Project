@@ -10,6 +10,7 @@
 #define __template__Enemy__
 
 #include "agk.h"
+#include "Player.h"
 
 #define ENEMY_SPRITES 100
 
@@ -19,8 +20,8 @@ public:
     void CreateEnemy(int id);
     void SpawnEnemies();
     int GetID();
-    void MoveEnemy();
-    void CheckCollision();
+    void MoveEnemy(const Player& player);
+    void CheckCollision(const Player& player);
     void SetEnemySpawnTime(int time = 0);
     int GetEnemySpawnTime();
     

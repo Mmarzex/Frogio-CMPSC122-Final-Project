@@ -57,7 +57,9 @@ void Level::LoadTiles()
     tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png");
     cout << i << endl;
     i++;
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass.png");
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png");
+    i++;
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png");
     cout << i << endl;
     tileNumber = i;
     cout << endl << endl;
@@ -87,22 +89,47 @@ void Level::DrawTiles()
 {
     cout << tileIds[0] << endl;
     cout << tileIds[1] << endl;
-    float height = 100.f;
-    float width = 100.f;
-    int i = 0;
+    float height = 400.f;
+    //float height = 0.f;
+    float width = 0.f;
+    //int i = 0;
+    numOfTileSprites = 0;
     for(int r = 0; r < MAX_TILES; r++)
     {
         for(int c = 0; c < MAX_TILES; c++)
         {
-            tileSprites[i] = agk::CreateSprite(tileMap[r][c]);
-            agk::SetSpriteScale(tileSprites[i], 2.f, 2.f);
-            agk::SetSpritePhysicsOn(tileSprites[i]);
-            agk::SetSpritePosition(tileSprites[i], width, height);
+            if(tileMap[r][c] != tileIds[0])
+            {
+                tileSprites[numOfTileSprites] = agk::CreateSprite(tileMap[r][c]);
+                agk::SetSpriteScale(tileSprites[numOfTileSprites], SCALE, SCALE);
+                agk::SetSpritePhysicsOn(tileSprites[numOfTileSprites], 1);
+                //agk::SetSpriteGroup(tileSprites[numOfTileSprites], 1);
+                //agk::SetSpritePhysicsMass(tileSprites[numOfTileSprites], 100.f);
+                //agk::FixSpriteToScreen(tileSprites[numOfTileSprites], 1);
+                agk::SetSpritePosition(tileSprites[numOfTileSprites], width, height);
+            }
             width += (16.f * SCALE);
-            i++;
+            //i++;
+            numOfTileSprites++;
         }
         height += (16.f * SCALE);
         width = 100.f;
+    }
+}
+
+void Level::CheckCollision(const Player& player)
+{
+    for(int i = 0; i < numOfTileSprites; i++)
+    {
+
+    }
+}
+
+void Level::CheckCollision(const Enemy& enemy)
+{
+    for(int i = 0; i < numOfTileSprites; i++)
+    {
+        
     }
 }
 

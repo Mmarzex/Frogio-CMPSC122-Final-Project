@@ -9,21 +9,36 @@
 #include "Player.h"
 #include <iostream>
 
-#define PLAYERSTARTHEIGHT 535.911f
+//#define PLAYERSTARTHEIGHT 535.911f
+#define PLAYERSTARTHEIGHT 264.f
+
 
 void Player::CreatePlayer(int id)
 {
     playerID = id;
     agk::CreateSprite(playerID, agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/ship_one.png"));
-    agk::SetSpritePosition(playerID, 500.f, PLAYERSTARTHEIGHT);
+    agk::SetSpritePosition(playerID, 16.f, PLAYERSTARTHEIGHT);
     agk::SetSpriteScale(playerID, 2.f, 2.f);
     agk::SetSpritePhysicsOn(playerID);
     agk::SetSpritePhysicsCanRotate(playerID, 0);
+    playerState = 0;
+    playerScore = 0;
+    playerLivesLeft = 3;
+    
+    //// DEBUG
+    std::cout << "Player mass:" << agk::GetSpritePhysicsMass(playerID) << std::endl << std::endl;
 }
 
-int Player::GetID()
+int Player::GetID() const
 {
     return playerID;
+}
+
+void Player::PowerUpPlayer()
+{
+    playerState = 1;
+    
+    /// Recreate sprite with appropriate state
 }
 
 void Player::RespawnPlayer()
@@ -58,6 +73,7 @@ void Player::CheckKeyState()
         //agk::SetSpritePhysicsVelocity(playerID, speed*2, 0);
         //agk::SetSpritePhysicsImpulse(playerID, x, y, speed * 4, 0);
         agk::SetSpritePhysicsImpulse(playerID, x, y, x + speed, y);
+        std::cout << "Player X Velocity: " << agk::GetSpritePhysicsVelocityX(playerID) << std::endl << std::endl;
     }
     if(agk::GetRawKeyState(83) == 1)
     {

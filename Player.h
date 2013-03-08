@@ -15,13 +15,26 @@ class Player
 {
 public:
     void CreatePlayer(int id);
-    int GetID();
+    int GetID() const;
+    void PowerUpPlayer();
     void RespawnPlayer();
     void CheckKeyState();
     void CheckKeyRelease();
     void MovePlayer();
+    //void CheckCollision(const Enemy& enemy);
 private:
     int playerID;
+    
+    /// For if poweredUp or not
+    /// 0 by default
+    int playerState;
+    
+    /// Player Score
+    int playerScore;
+    
+    /// Player Lives
+    /// 3 By default
+    int playerLivesLeft;
 };
 
 #endif /* defined(__template__Player__) */
