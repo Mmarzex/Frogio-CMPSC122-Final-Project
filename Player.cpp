@@ -62,6 +62,8 @@ void Player::CheckKeyState()
         //agk::SetSpritePosition(1, x + (-1* speed), y);
         //agk::SetSpritePhysicsVelocity(playerID, (speed * -2), 0);
         agk::SetSpritePhysicsImpulse(playerID, x, y, x -speed, y);
+        float mathStuff = agk::GetSpriteX(playerID) - (agk::GetVirtualWidth() / 2) + (agk::GetSpriteWidth(playerID) / 2);
+        agk::SetViewOffset(mathStuff, 0);
     }
     if(agk::GetRawKeyState(68) == 1)
     {
@@ -74,8 +76,10 @@ void Player::CheckKeyState()
         //agk::SetSpritePhysicsImpulse(playerID, x, y, speed * 4, 0);
         agk::SetSpritePhysicsImpulse(playerID, x, y, x + speed, y);
         //agk::SetViewOffset(agk::GetSpriteX(playerID), 0);
-        agk::SetViewOffset(agk::GetWorldXFromSprite(playerID, agk::GetSpriteX(playerID), agk::GetSpriteY(playerID)), 0);
-        agk::Sync();
+        float mathStuff = agk::GetSpriteX(playerID) - (agk::GetVirtualWidth() / 2) +(agk::GetSpriteWidth(playerID) / 2);
+        agk::SetViewOffset(mathStuff, 0);
+        //agk::SetViewOffset(agk::GetWorldXFromSprite(playerID, agk::GetSpriteX(playerID), agk::GetSpriteY(playerID)), 0);
+        //agk::Sync();
         std::cout << "Player X Velocity: " << agk::GetSpritePhysicsVelocityX(playerID) << std::endl << std::endl;
     }
     if(agk::GetRawKeyState(83) == 1)
