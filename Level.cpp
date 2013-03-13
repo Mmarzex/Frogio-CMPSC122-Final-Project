@@ -54,15 +54,15 @@ void Level::LoadTiles()
 {
     int i = 0;
     // DEBUG ///////
-    //tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png");
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png");
     //cout << i << endl;
-    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png"));
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png"));
     i++;
-    //tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png");
-    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png"));
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png");
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png"));
     i++;
-    //tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png");
-    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png"));
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png");
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png"));
     //cout << i << endl;
     tileNumber = i;
     //cout << endl << endl;
@@ -73,22 +73,22 @@ void Level::LoadTileMap(const string& filename)
     fstream mapFile(filename.c_str());
     for(int r = 0; r < MAX_TILES; r++)
     {
-        vector<int>* newVector = new vector<int>;
+        //vector<int>* newVector = new vector<int>;
         for(int c = 0; c < MAX_TILES; c++)
         {
             int temp = 0;
             if(!mapFile.eof())
             {
                 mapFile >> temp;
-                newVector->push_back(tileIds[temp]);
-                //tileMap[r][c] = tileIds[temp];
+                //newVector->push_back(tileIds[temp]);
+                tileMap[r][c] = tileIds[temp];
             } else
             {
-                newVector->push_back(tileIds[0]);
-                //tileMap[r][c] = tileIds[0];
+                //newVector->push_back(tileIds[0]);
+                tileMap[r][c] = tileIds[0];
             }
         }
-        tileMap.push_back(*newVector);
+        //tileMap.push_back(*newVector);
     }
 }
 
@@ -107,8 +107,8 @@ void Level::DrawTiles()
         {
             if(tileMap[r][c] != tileIds[0])
             {
-                //tileSprites[numOfTileSprites] = agk::CreateSprite(tileMap[r][c]);
-                tileSprites.push_back(agk::CreateSprite(tileMap[r][c]));
+                tileSprites[numOfTileSprites] = agk::CreateSprite(tileMap[r][c]);
+                //tileSprites.push_back(agk::CreateSprite(tileMap[r][c]));
                 agk::SetSpriteScale(tileSprites[numOfTileSprites], SCALE, SCALE);
                 agk::SetSpritePhysicsOn(tileSprites[numOfTileSprites], 1);
                 //agk::SetSpriteGroup(tileSprites[numOfTileSprites], 1);

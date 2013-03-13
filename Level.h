@@ -39,12 +39,12 @@ public:
     void CreateNextLevel(const string& levelName);
 private:
     int levelId;
-    /*int tileIds[MAX_TILES];
+    int tileIds[MAX_TILES];
     int tileSprites[MAX_SPRITES];
-    int tileMap[MAX_TILES][MAX_TILES];*/
-    vector<int> tileIds;
+    int tileMap[MAX_TILES][MAX_TILES];
+    /*vector<int> tileIds;
     vector<int> tileSprites;
-    vector<vector<int> > tileMap;
+    vector<vector<int> > tileMap;*/
     int tileNumber;
     int numOfTileSprites;
 };
