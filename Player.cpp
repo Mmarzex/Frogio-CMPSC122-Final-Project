@@ -73,6 +73,9 @@ void Player::CheckKeyState()
         //agk::SetSpritePhysicsVelocity(playerID, speed*2, 0);
         //agk::SetSpritePhysicsImpulse(playerID, x, y, speed * 4, 0);
         agk::SetSpritePhysicsImpulse(playerID, x, y, x + speed, y);
+        //agk::SetViewOffset(agk::GetSpriteX(playerID), 0);
+        agk::SetViewOffset(agk::GetWorldXFromSprite(playerID, agk::GetSpriteX(playerID), agk::GetSpriteY(playerID)), 0);
+        agk::Sync();
         std::cout << "Player X Velocity: " << agk::GetSpritePhysicsVelocityX(playerID) << std::endl << std::endl;
     }
     if(agk::GetRawKeyState(83) == 1)

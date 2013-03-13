@@ -26,7 +26,7 @@ void Game::CreateGame()
     Level newLevel;
     newLevel.CreateLevel(1);
     //agk::LoadMusic(1, "/Users/maxmarze/sandbox/AGK/IDE/templates/template_mac_xcode4/music.mp3");
-    //agk::SetMusicFileVolume(1, 75);
+    agk::SetMusicFileVolume(1, 75);
     //agk::PlayMusic(1, 1);
     //agk::SetMusicFileVolume(2, 75);
     //agk::PlayMusic(2, 1, 2, 2);
