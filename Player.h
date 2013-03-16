@@ -35,6 +35,10 @@ private:
     /// Player Lives
     /// 3 By default
     int playerLivesLeft;
+    
+    float midScreen;
+    float playerWid;
+    float playerOffset;
 };
 
 #endif /* defined(__template__Player__) */

@@ -7,19 +7,25 @@
 //
 
 #include "Game.h"
+//#include "TitleScreen.h"
 
 #define PLAYER  1
 
+//TitleScreen title;
 Player playerOne;
 Enemy enemyOne;
 
+void Game::BeginGame()
+{
+}
+
 void Game::CreateGame()
 {
-    //agk::SetVirtualResolution ( m_DeviceWidth, m_DeviceHeight );
-    agk::SetVirtualResolution(800, 600);
+    
+    
     agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/background1.jpg"));
     agk::SetPhysicsGravity(0, 150.f);
-    agk::SetPhysicsWallBottom(1);
+//    agk::SetPhysicsWallBottom(0);
     agk::LoadImage(1, "ship_one.png");
     agk::LoadMusic(1, "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/Maxs game.mp3");
     playerOne.CreatePlayer(PLAYER);
@@ -63,13 +69,13 @@ void Game::GameLoop()
      agk::PlayMusic(2);
      } */
     playerOne.MovePlayer();
-    enemyOne.MoveEnemy(playerOne);
+    //enemyOne.MoveEnemy(playerOne);
     /*if(enemyOne.GetEnemySpawnTime() + 10 < agk::GetSeconds())
     {
         enemyOne.MoveEnemy(playerOne);
         enemyOne.SetEnemySpawnTime();
     }*/
-    enemyOne.CheckCollision(playerOne);
+    //enemyOne.CheckCollision(playerOne);
     agk::Sync();
 }
 

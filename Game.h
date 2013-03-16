@@ -17,6 +17,7 @@
 class Game
 {
 public:
+    void BeginGame();
     void CreateGame();
     void GameLoop();
     void DestroyGame();

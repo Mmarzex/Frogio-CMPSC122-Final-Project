@@ -20,7 +20,7 @@ using std::string;
 
 // Max tiles that can be used with any drawn level
 // Max Sprites that can be used by any drawn level
-#define MAX_TILES 19
+#define MAX_TILES 46
 #define MAX_SPRITES 1000
 
 // Scale for all Sprites

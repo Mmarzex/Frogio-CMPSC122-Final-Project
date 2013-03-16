@@ -24,6 +24,10 @@ void AppForceExit ( void );
 // Begin app, called once at the start
 void app::Begin( void )
 {
+    agk::SetVirtualResolution ( m_DeviceWidth, m_DeviceHeight );
+    //agk::SetVirtualResolution(800, 600);
+    //myGame.CreateGame();
+    //title.DrawScreen();
     myGame.CreateGame();
     //title.DrawScreen();
 }
@@ -31,6 +35,14 @@ void app::Begin( void )
 // Main loop, called every frame
 void app::Loop ( void )
 {
+    /*if(title.CheckInput())
+    {
+        myGame.CreateGame();
+    }
+    if(title.GetHasStarted())
+    {
+        myGame.GameLoop();
+}*/
     myGame.GameLoop();
 }
 
