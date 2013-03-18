@@ -16,7 +16,7 @@
 void Player::CreatePlayer(int id)
 {
     playerID = id;
-    agk::CreateSprite(playerID, agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/ship_one.png"));
+    agk::CreateSprite(playerID, agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/ship_one.png"));
     agk::SetSpritePosition(playerID, 16.f, PLAYERSTARTHEIGHT);
     agk::SetSpriteScale(playerID, 2.f, 2.f);
     agk::SetSpritePhysicsOn(playerID);
@@ -24,8 +24,8 @@ void Player::CreatePlayer(int id)
     playerState = 0;
     playerScore = 0;
     playerLivesLeft = 3;
-    midScreen = agk::GetVirtualWidth() / 2.f;
-    playerWid = agk::GetSpriteWidth(playerID) / 2.f;
+    midScreen = agk::GetVirtualWidth() / 2.0f;
+    playerWid = agk::GetSpriteWidth(playerID) / 2.0f;
     playerOffset = midScreen + playerWid;
     
     //// DEBUG
@@ -47,66 +47,35 @@ void Player::PowerUpPlayer()
 void Player::RespawnPlayer()
 {
     agk::DeleteSprite(1);
-    int initialTime = agk::GetSeconds();
+    //int initialTime = agk::GetSeconds();
     agk::Print("YOU LOST!");
     CreatePlayer(playerID);
 }
 
 void Player::CheckKeyState()
 {
-    float mathStuff;
     float speed = 1000.f;
+    float jumpSpeed = 15000.f;
     float x = agk::GetSpriteX(playerID);
     float y = agk::GetSpriteY(playerID);
+    
+    // update based on changes since last frame
+    float mathStuff = x - playerOffset;
+    agk::SetViewOffset(mathStuff, 0);
+    
+    // check for movement keys
     if(agk::GetRawKeyState(65) == 1)
     {
-        //float speed = 100.f;
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
-        //agk::SetSpritePosition(1, x + (-1* speed), y);
-        //agk::SetSpritePhysicsVelocity(playerID, (speed * -2), 0);
-        agk::SetSpritePhysicsImpulse(playerID, x, y, x -speed, y);
-        //float mathStuff = agk::GetSpriteX(playerID) - (agk::GetVirtualWidth() / 2) + (agk::GetSpriteWidth(playerID) / 2);
-        mathStuff = agk::GetSpriteX(playerID) - playerOffset;
-        agk::SetViewOffset(mathStuff, 0);
-        std::cout << "Player X, pressing left: " << agk::GetSpriteX(playerID) << std::endl;
+        agk::SetSpritePhysicsImpulse(playerID, x, y, -speed, y);
     } else if(agk::GetRawKeyState(68) == 1)
     {
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
-        //agk::SetSpritePosition(1, x + speed, y);
-        //agk::SetSpritePhysicsVelocity(PLAYER, speed, 0);
-        //agk::SetSpritePhysicsForce(1, x, y, speed, 0);
-        //agk::SetSpritePhysicsVelocity(playerID, speed*2, 0);
-        //agk::SetSpritePhysicsImpulse(playerID, x, y, speed * 4, 0);
-        agk::SetSpritePhysicsImpulse(playerID, x, y, x + speed, y);
-        //agk::SetViewOffset(agk::GetSpriteX(playerID), 0);
-        //float mathStuff = agk::GetSpriteX(playerID) - (agk::GetVirtualWidth() / 2) +(agk::GetSpriteWidth(playerID) / 2);
-        mathStuff = agk::GetSpriteX(playerID) - playerOffset;
-        agk::SetViewOffset(mathStuff, 0);
-        //agk::SetViewOffset(agk::GetWorldXFromSprite(playerID, agk::GetSpriteX(playerID), agk::GetSpriteY(playerID)), 0);
-        //agk::Sync();
-        std::cout << "Player X, pressing right: " << agk::GetSpriteX(playerID) << std::endl;
-        //std::cout << "Player X Velocity: " << agk::GetSpritePhysicsVelocityX(playerID) << std::endl << std::endl;
+        agk::SetSpritePhysicsImpulse(playerID, x, y, speed, y);
     }
-    if(agk::GetRawKeyState(83) == 1)
-    {
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
-        //agk::SetSpritePosition(1, x, y + speed);
-        agk::Print("Down");
-    }
+    
     if(agk::GetRawKeyPressed(87) == 1)
     {
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
-        //agk::SetSpritePosition(1, x, y + (-1 * speed));
-        //agk::SetSpritePhysicsImpulse(playerID, x, y, 10, -10000);
-        agk::SetSpritePhysicsImpulse(playerID, x, y, x, y - 15000.f);
-        //agk::SetSpritePhysicsVelocity(playerID, 0, speed * -2);
-        
+        agk::SetSpritePhysicsImpulse(playerID, x, y, x, -jumpSpeed);
     }
-    //std::cout << "x = " << x << " , y = " << y << std::endl;
 }
 
 void Player::CheckKeyRelease()

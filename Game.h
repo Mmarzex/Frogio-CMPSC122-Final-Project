@@ -17,11 +17,13 @@
 class Game
 {
 public:
+    void SetLevelMusic(int musicId);
     void BeginGame();
     void CreateGame();
     void GameLoop();
     void DestroyGame();
 private:
+    bool titleState;
 };
 
 #endif /* defined(__template__Game__) */

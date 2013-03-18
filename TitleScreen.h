@@ -20,6 +20,7 @@ public:
     void DrawScreen();
     bool CheckInput();
     bool GetHasStarted() { return hasStarted; }
+    void SetHasStarted() { hasStarted = false; }
     void DeleteScreen();
 private:
     bool hasStarted;

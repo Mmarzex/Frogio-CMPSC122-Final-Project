@@ -19,11 +19,12 @@ bool TitleScreen::CheckInput()
 {
     if(agk::GetRawKeyPressed(13) == 1)
     {
-        DeleteScreen();
+        agk::Print("Enter was pressed");
         hasStarted = true;
         return true;
     } else
     {
+        hasStarted = false;
         return false;
     }
 }

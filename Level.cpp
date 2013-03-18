@@ -12,7 +12,7 @@
 using namespace std;
 
 // LEVEL FILE NAMES
-#define LEVEL_ONE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/levelOne.txt"
+#define LEVEL_ONE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
 #define LEVEL_TWO ""
 #define LEVEL_THREE ""
 #define LEVEL_FOUR ""
@@ -54,15 +54,15 @@ void Level::LoadTiles()
 {
     int i = 0;
     // DEBUG ///////
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png");
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png");
     //cout << i << endl;
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/air.png"));
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png"));
     i++;
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png");
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/dirt_resize.png"));
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png");
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png"));
     i++;
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png");
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/grass_top_resize.png"));
+    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png");
+    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png"));
     //cout << i << endl;
     tileNumber = i;
     //cout << endl << endl;
@@ -129,7 +129,7 @@ void Level::CheckCollision(const Player& player)
 {
     for(int i = 0; i < numOfTileSprites; i++)
     {
-
+        
     }
 }
 

@@ -4,7 +4,7 @@
 #include "Enemy.h"
 #include "Level.h"
 #include "Game.h"
-#include "TitleScreen.h"
+//#include "TitleScreen.h"
 
 // DEBUG GET RID OFF !!!!!!! /////
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace std;
 //#define PLAYER  1
 app App;
 Game myGame;
-TitleScreen title;
+//TitleScreen title;
 //Player playerOne;
 //Enemy enemyOne;
 // App prototype
