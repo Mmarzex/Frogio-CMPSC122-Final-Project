@@ -24,6 +24,7 @@ using std::string;
 #define MAX_SPRITES 1000
 
 // Scale for all Sprites
+//// MAYBE MAKE DATA MEMBER TO MAKE IT VARYING FOR DIFFERENT LEVELS
 #define SCALE 4.f
 
 
@@ -47,5 +48,6 @@ private:
     vector<vector<int> > tileMap;*/
     int tileNumber;
     int numOfTileSprites;
+    int columns;
 };
 #endif /* defined(__template__Level__) */

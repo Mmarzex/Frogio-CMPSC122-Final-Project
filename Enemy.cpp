@@ -19,10 +19,6 @@ void Enemy::CreateEnemy(int id)
     agk::SetSpritePhysicsOn(enemySprites[id]);
     agk::SetSpriteScale(enemySprites[id], 2.f, 2.f);
     agk::SetSpritePhysicsCanRotate(enemySprites[id], 0);
-    //agk::CreateSprite(enemyID, agk::LoadImage("/Users/maxmarze/sandbox/AGK/IDE/templates/template_mac_xcode4/Snake_one.png"));
-    //agk::SetSpriteScale(1, 2.f, 2.f);
-    //agk::SetSpritePhysicsOn(enemyID);
-    //agk::SetSpritePhysicsCanRotate(enemyID, 0);
     numOfEnemySprites++;
 }
 

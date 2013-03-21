@@ -47,15 +47,15 @@ void Player::PowerUpPlayer()
 void Player::RespawnPlayer()
 {
     agk::DeleteSprite(1);
-    //int initialTime = agk::GetSeconds();
     agk::Print("YOU LOST!");
     CreatePlayer(playerID);
 }
 
 void Player::CheckKeyState()
 {
-    float speed = 1000.f;
-    float jumpSpeed = 15000.f;
+    float speed = 10000.f;
+    //float jumpSpeed = 15000.f;
+    float jumpSpeed = 45000.f;
     float x = agk::GetSpriteX(playerID);
     float y = agk::GetSpriteY(playerID);
     
@@ -86,8 +86,6 @@ void Player::CheckKeyRelease()
     }
     if(agk::GetRawKeyReleased(68) == 1)
     {
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
         agk::SetSpritePhysicsVelocity(playerID, 0, 0);
     }
     if(agk::GetRawKeyReleased(87) == 1)
@@ -103,10 +101,19 @@ void Player::MovePlayer()
     
     if(agk::GetSpriteCollision(playerID, 11) == 1)
     {
-        //float x = agk::GetSpriteX(playerID);
-        //float y = agk::GetSpriteY(playerID);
-        //agk::SetSpritePosition(PLAYER, x - speed, y - speed);
         RespawnPlayer();
         
+    }
+}
+
+
+/// data member to increase the width to check in order to move
+void Player::CheckPlayerScreenBounds(int &bkg)
+{
+    if(agk::GetSpriteX(playerID) >= agk::GetVirtualWidth())
+    {
+        agk::DeleteSprite(bkg);
+        bkg = agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/background1.jpg"));
+        agk::SetSpriteDepth(bkg, 10000);
     }
 }

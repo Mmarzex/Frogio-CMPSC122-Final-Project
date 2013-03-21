@@ -21,6 +21,7 @@ public:
     void CheckKeyState();
     void CheckKeyRelease();
     void MovePlayer();
+    void CheckPlayerScreenBounds(int &bkg);
     //void CheckCollision(const Enemy& enemy);
 private:
     int playerID;

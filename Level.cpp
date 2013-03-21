@@ -68,6 +68,50 @@ void Level::LoadTiles()
     //cout << endl << endl;
 }
 
+/*void Level::LoadTiles()
+{
+    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png"));
+    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png"));
+    tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png"));
+}
+
+
+void Level::LoadTileMap(const string& filename)
+{
+    fstream mapFile(filename.c_str());
+    string tempString = "";
+    getline(mapFile, tempString);
+    // MAKE DATA MEMBER
+    columns = 0;
+    for(int i = 0; i < tempString.size(); i++)
+    {
+        if(tempString[i] == ' ')
+            columns++;
+    }
+    mapFile.close();
+    mapFile.open(filename.c_str());
+    for(int r = 0; r < columns; r++)
+    {
+        //vector<int> temp = new vector<int>;
+        vector<int> newVector;
+        //tileMap.push_back(newVector);
+        for(int c = 0; c < columns; c++)
+        {
+            int temp = 0;
+            if(!mapFile.eof())
+            {
+                mapFile >> temp;
+                newVector.push_back(tileIds[temp]);
+            } else
+            {
+                newVector.push_back(tileIds[0]);
+            }
+        }
+        tileMap.push_back(newVector);
+        newVector.clear();
+    }
+}*/
+
 void Level::LoadTileMap(const string& filename)
 {
     fstream mapFile(filename.c_str());
@@ -124,6 +168,31 @@ void Level::DrawTiles()
         width = 0.f;
     }
 }
+
+/*void Level::DrawTiles()
+{
+    float height = 400.f;
+    float width = 0.f;
+    // Data Member
+    numOfTileSprites = 0;
+    for(int r = 0; r < columns; r++)
+    {
+        for(int c = 0; c < columns; c++)
+        {
+            if(tileMap[r][c] != tileIds[0])
+            {
+                tileSprites.push_back(agk::CreateSprite(tileMap[r][c]));
+                agk::SetSpriteScale(tileSprites[numOfTileSprites], SCALE, SCALE);
+                agk::SetSpritePhysicsOn(tileSprites[numOfTileSprites], 1);
+                agk::SetSpritePosition(tileSprites[numOfTileSprites], width, height);
+            }
+            width += (16.f * SCALE);
+            numOfTileSprites++;
+        }
+        height += (16.f * SCALE);
+        width = 0.f;
+    }
+}*/
 
 void Level::CheckCollision(const Player& player)
 {

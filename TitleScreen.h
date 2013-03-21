@@ -24,6 +24,7 @@ public:
     void DeleteScreen();
 private:
     bool hasStarted;
+    int screenId;
 };
 
 #endif /* defined(__Frogio__TitleScreen__) */

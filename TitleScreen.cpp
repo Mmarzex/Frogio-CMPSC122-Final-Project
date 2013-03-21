@@ -11,7 +11,9 @@
 
 void TitleScreen::DrawScreen()
 {
-    agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/title_screen_proto.png"));
+    screenId = agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/template_mac_xcode4/title_screen_proto.png"));
+    std::cout << "Virtual Height: " << agk::GetVirtualHeight() << std::endl;
+    std::cout << "Virtual Width: " << agk::GetVirtualWidth() << std::endl;
     hasStarted = false;
 }
 
@@ -31,5 +33,6 @@ bool TitleScreen::CheckInput()
 
 void TitleScreen::DeleteScreen()
 {
+    agk::DeleteSprite(screenId);
     agk::ClearScreen();
 }
