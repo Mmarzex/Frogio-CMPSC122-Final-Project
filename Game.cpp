@@ -60,7 +60,7 @@ void Game::GameLoop()
         //agk::ClearScreen();
         agk::Sync();
         //k = agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/background1.jpg"));
-        SetLevelMusic(1);
+        //SetLevelMusic(1);
         playerOne.CreatePlayer(PLAYER);
         newLevel.CreateLevel(1);
         agk::LoadImage(2, "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/Enemy_one.png");
@@ -72,6 +72,7 @@ void Game::GameLoop()
     if(titleState == false)
     {
         playerOne.MovePlayer();
+        newLevel.CheckForWin(playerOne);
         //playerOne.CheckPlayerScreenBounds(k);
         
     }

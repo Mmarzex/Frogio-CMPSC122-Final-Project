@@ -20,7 +20,8 @@ using std::string;
 
 // Max tiles that can be used with any drawn level
 // Max Sprites that can be used by any drawn level
-#define MAX_TILES 46
+//#define MAX_TILES 46
+#define MAX_TILES 1000
 #define MAX_SPRITES 1000
 
 // Scale for all Sprites
@@ -35,8 +36,8 @@ public:
     void LoadTiles();
     void LoadTileMap(const string& filename);
     void DrawTiles();
-    void CheckCollision(const Player& player);
-    void CheckCollision(const Enemy& enemy);
+    void DeleteTiles();
+    void CheckForWin(Player& player);
     void CreateNextLevel(const string& levelName);
 private:
     int levelId;
@@ -49,5 +50,6 @@ private:
     int tileNumber;
     int numOfTileSprites;
     int columns;
+    int maxWidth;
 };
 #endif /* defined(__template__Level__) */

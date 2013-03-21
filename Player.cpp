@@ -112,8 +112,13 @@ void Player::CheckPlayerScreenBounds(int &bkg)
 {
     if(agk::GetSpriteX(playerID) >= agk::GetVirtualWidth())
     {
-        agk::DeleteSprite(bkg);
-        bkg = agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/background1.jpg"));
-        agk::SetSpriteDepth(bkg, 10000);
+        
     }
+}
+
+void Player::LevelEndPlayer()
+{
+    totalPlayerScore += playerScore;
+    playerScore = 0;
+    agk::DeleteSprite(playerID);
 }

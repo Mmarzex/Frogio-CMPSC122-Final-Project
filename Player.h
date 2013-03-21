@@ -22,6 +22,7 @@ public:
     void CheckKeyRelease();
     void MovePlayer();
     void CheckPlayerScreenBounds(int &bkg);
+    void LevelEndPlayer();
     //void CheckCollision(const Enemy& enemy);
 private:
     int playerID;
@@ -36,6 +37,8 @@ private:
     /// Player Lives
     /// 3 By default
     int playerLivesLeft;
+    
+    int totalPlayerScore;
     
     float midScreen;
     float playerWid;

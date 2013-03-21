@@ -114,11 +114,23 @@ void Level::LoadTileMap(const string& filename)
 
 void Level::LoadTileMap(const string& filename)
 {
+    fstream mapFile2(filename.c_str());
+    string tempString = "";
+    getline(mapFile2, tempString);
+    // MAKE DATA MEMBER
+    columns = 0;
+    for(int i = 0; i < tempString.size(); i++)
+    {
+        if(tempString[i] == ' ')
+            columns++;
+    }
+    columns++;
+    cout << "Number of tiles in a row: " << columns << endl;
     fstream mapFile(filename.c_str());
-    for(int r = 0; r < MAX_TILES; r++)
+    for(int r = 0; r < columns; r++)
     {
         //vector<int>* newVector = new vector<int>;
-        for(int c = 0; c < MAX_TILES; c++)
+        for(int c = 0; c < columns; c++)
         {
             int temp = 0;
             if(!mapFile.eof())
@@ -145,9 +157,9 @@ void Level::DrawTiles()
     float width = 0.f;
     //int i = 0;
     numOfTileSprites = 0;
-    for(int r = 0; r < MAX_TILES; r++)
+    for(int r = 0; r < columns; r++)
     {
-        for(int c = 0; c < MAX_TILES; c++)
+        for(int c = 0; c < columns; c++)
         {
             if(tileMap[r][c] != tileIds[0])
             {
@@ -164,6 +176,7 @@ void Level::DrawTiles()
             //i++;
             numOfTileSprites++;
         }
+        maxWidth = width - (16.f * SCALE);
         height += (16.f * SCALE);
         width = 0.f;
     }
@@ -194,19 +207,22 @@ void Level::DrawTiles()
     }
 }*/
 
-void Level::CheckCollision(const Player& player)
+void Level::DeleteTiles()
 {
     for(int i = 0; i < numOfTileSprites; i++)
     {
-        
+        agk::DeleteSprite(tileSprites[i]);
     }
 }
 
-void Level::CheckCollision(const Enemy& enemy)
+void Level::CheckForWin(Player& player)
 {
-    for(int i = 0; i < numOfTileSprites; i++)
+    if(agk::GetSpriteX(player.GetID()) >= maxWidth)
     {
-        
+        agk::Print("You reached the end of the level!");
+        agk::ClearScreen();
+        player.LevelEndPlayer();
+        DeleteTiles();
     }
 }
 
