@@ -40,7 +40,9 @@ private:
     
     int totalPlayerScore;
     
-    float midScreen;
+    float midScreenWid;
+    float midScreenH;
+    float playerH;
     float playerWid;
     float playerOffset;
 };

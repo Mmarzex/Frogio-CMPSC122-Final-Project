@@ -13,10 +13,10 @@ using namespace std;
 
 // LEVEL FILE NAMES
 #define LEVEL_ONE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
-#define LEVEL_TWO ""
-#define LEVEL_THREE ""
-#define LEVEL_FOUR ""
-#define LEVEL_FIVE ""
+#define LEVEL_TWO "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelTwo.txt"
+#define LEVEL_THREE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
+#define LEVEL_FOUR "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelTwo.txt"
+#define LEVEL_FIVE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
 
 /// NOT ACTUALLY LEVEL JUST END WITH SCORE AND CREDITS
 #define LEVEL_SIX ""
@@ -26,18 +26,23 @@ void Level::CreateLevel(int level)
 {
     switch (level) {
         case 1:
+            LoadTiles(1);
             CreateNextLevel(LEVEL_ONE);
             break;
         case 2:
+            LoadTiles(2);
             CreateNextLevel(LEVEL_TWO);
             break;
         case 3:
+            LoadTiles(3);
             CreateNextLevel(LEVEL_THREE);
             break;
         case 4:
+            LoadTiles(4);
             CreateNextLevel(LEVEL_FOUR);
             break;
         case 5:
+            LoadTiles(5);
             CreateNextLevel(LEVEL_FIVE);
             break;
         default:
@@ -50,22 +55,37 @@ void Level::CreateLevel(int level)
 ///// NEED TO IMPLEMENT TILES FOR EACH DIFFERENT LEVEL
 ///// POSSIBLE ARRAY OF STRINGS OF FILEPATHS FOR EACH LEVEL
 ///// SWITCH STATEMENT TO PICK WHICH ONES TO LOAD WITH LoadTiles
-void Level::LoadTiles()
+void Level::LoadTiles(int level)
 {
     int i = 0;
-    // DEBUG ///////
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png");
-    //cout << i << endl;
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png"));
-    i++;
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png");
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png"));
-    i++;
-    tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png");
-    //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png"));
-    //cout << i << endl;
-    tileNumber = i;
-    //cout << endl << endl;
+    switch (level) {
+        case 1:
+            // DEBUG ///////
+            tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png");
+            //cout << i << endl;
+            //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png"));
+            i++;
+            tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png");
+            //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/dirt_resize.png"));
+            i++;
+            tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png");
+            //tileIds.push_back(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/grass_top_resize.png"));
+            //cout << i << endl;
+            tileNumber = i;
+            //cout << endl << endl;
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+            
+        default:
+            break;
+    }
 }
 
 /*void Level::LoadTiles()
@@ -176,6 +196,7 @@ void Level::DrawTiles()
             //i++;
             numOfTileSprites++;
         }
+        //cout << "Height: " << height << endl;
         maxWidth = width - (16.f * SCALE);
         height += (16.f * SCALE);
         width = 0.f;
@@ -215,7 +236,7 @@ void Level::DeleteTiles()
     }
 }
 
-void Level::CheckForWin(Player& player)
+bool Level::CheckForWin(Player& player)
 {
     if(agk::GetSpriteX(player.GetID()) >= maxWidth)
     {
@@ -223,6 +244,10 @@ void Level::CheckForWin(Player& player)
         agk::ClearScreen();
         player.LevelEndPlayer();
         DeleteTiles();
+        return true;
+    } else
+    {
+        return false;
     }
 }
 
@@ -230,7 +255,7 @@ void Level::CheckForWin(Player& player)
 ///// CALLED WHEN END OF LEVEL IS REACHED TO PROGRESS TO NEXT LEVEL
 void Level::CreateNextLevel(const string& levelName)
 {
-    LoadTiles();
+    //LoadTiles();
     LoadTileMap(levelName);
     DrawTiles();
 }

@@ -24,6 +24,8 @@ public:
     void DestroyGame();
 private:
     bool titleState;
+    bool levelCreateState;
+    int levelOn;
 };
 
 #endif /* defined(__template__Game__) */

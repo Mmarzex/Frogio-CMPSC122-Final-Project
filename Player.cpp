@@ -10,7 +10,7 @@
 #include <iostream>
 
 //#define PLAYERSTARTHEIGHT 535.911f
-#define PLAYERSTARTHEIGHT 264.f
+#define PLAYERSTARTHEIGHT 368.f
 
 
 void Player::CreatePlayer(int id)
@@ -24,9 +24,9 @@ void Player::CreatePlayer(int id)
     playerState = 0;
     playerScore = 0;
     playerLivesLeft = 3;
-    midScreen = agk::GetVirtualWidth() / 2.0f;
+    midScreenWid = agk::GetVirtualWidth() / 2.0f;
     playerWid = agk::GetSpriteWidth(playerID) / 2.0f;
-    playerOffset = midScreen + playerWid;
+    playerOffset = midScreenWid + playerWid;
     
     //// DEBUG
     std::cout << "Player mass:" << agk::GetSpritePhysicsMass(playerID) << std::endl << std::endl;
@@ -61,7 +61,9 @@ void Player::CheckKeyState()
     
     // update based on changes since last frame
     float mathStuff = x - playerOffset;
-    agk::SetViewOffset(mathStuff, 0);
+    float mathStuffH = y - playerOffset;
+    //agk::SetViewOffset(mathStuff, 0);
+    agk::SetViewOffset(mathStuff, mathStuffH);
     
     // check for movement keys
     if(agk::GetRawKeyState(65) == 1)

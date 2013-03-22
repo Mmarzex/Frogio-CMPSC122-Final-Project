@@ -33,11 +33,11 @@ class Level
 {
 public:
     void CreateLevel(int level);
-    void LoadTiles();
+    void LoadTiles(int level);
     void LoadTileMap(const string& filename);
     void DrawTiles();
     void DeleteTiles();
-    void CheckForWin(Player& player);
+    bool CheckForWin(Player& player);
     void CreateNextLevel(const string& levelName);
 private:
     int levelId;

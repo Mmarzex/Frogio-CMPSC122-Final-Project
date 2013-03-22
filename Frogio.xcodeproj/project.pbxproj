@@ -23,6 +23,7 @@
 		12CC7CD416E93D4D000F34BD /* grass_top_resize.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CC7CD316E93D4D000F34BD /* grass_top_resize.png */; };
 		12CC7CD616E93E59000F34BD /* dirt_resize.png in Resources */ = {isa = PBXBuildFile; fileRef = 12CC7CD516E93E59000F34BD /* dirt_resize.png */; };
 		12DD463716E6A46700CBC9E2 /* background1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12DD463616E6A46700CBC9E2 /* background1.jpg */; };
+		12FEAF4C16FBF1E60096CE21 /* levelTwo.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12FEAF4B16FBF1E60096CE21 /* levelTwo.txt */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		9B409BE013E2F23300A51D16 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9B409BDF13E2F23300A51D16 /* Icon.icns */; };
 		9B45E67813EF444E0085975A /* Frogio-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B45E67713EF444E0085975A /* Frogio-Info.plist */; };
@@ -63,6 +64,7 @@
 		12CC7CD316E93D4D000F34BD /* grass_top_resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_top_resize.png; sourceTree = "<group>"; };
 		12CC7CD516E93E59000F34BD /* dirt_resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dirt_resize.png; sourceTree = "<group>"; };
 		12DD463616E6A46700CBC9E2 /* background1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background1.jpg; sourceTree = "<group>"; };
+		12FEAF4B16FBF1E60096CE21 /* levelTwo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = levelTwo.txt; sourceTree = "<group>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -173,12 +175,21 @@
 		12312B0316E5C65300A25DBB /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
+				12FEAF4A16FBF0C00096CE21 /* World One */,
+			);
+			name = Tiles;
+			sourceTree = "<group>";
+		};
+		12FEAF4A16FBF0C00096CE21 /* World One */ = {
+			isa = PBXGroup;
+			children = (
 				12CC7CD516E93E59000F34BD /* dirt_resize.png */,
 				12CC7CD316E93D4D000F34BD /* grass_top_resize.png */,
 				12CC7CD116E93C41000F34BD /* grass_top.png */,
 				12312B0816E5C66900A25DBB /* levelOne.txt */,
+				12FEAF4B16FBF1E60096CE21 /* levelTwo.txt */,
 			);
-			name = Tiles;
+			name = "World One";
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -334,6 +345,7 @@
 				12CC7CD416E93D4D000F34BD /* grass_top_resize.png in Resources */,
 				12CC7CD616E93E59000F34BD /* dirt_resize.png in Resources */,
 				1232581216F0350A00A4A937 /* title_screen_proto.png in Resources */,
+				12FEAF4C16FBF1E60096CE21 /* levelTwo.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

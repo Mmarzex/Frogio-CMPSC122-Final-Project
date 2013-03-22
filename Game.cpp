@@ -10,6 +10,7 @@
 #include "TitleScreen.h"
 
 #define PLAYER  1
+#define NUM_OF_LEVELS 6
 
 TitleScreen title;
 Player playerOne;
@@ -55,6 +56,8 @@ void Game::GameLoop()
     if (title.GetHasStarted() == true) {
         title.SetHasStarted();
         titleState = false;
+        levelCreateState = false;
+        levelOn = 1;
         agk::SetClearColor(55, 255, 249);
         title.DeleteScreen();
         //agk::ClearScreen();
@@ -62,7 +65,7 @@ void Game::GameLoop()
         //k = agk::CreateSprite(agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/background1.jpg"));
         //SetLevelMusic(1);
         playerOne.CreatePlayer(PLAYER);
-        newLevel.CreateLevel(1);
+        newLevel.CreateLevel(levelOn);
         agk::LoadImage(2, "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/Enemy_one.png");
         agk::CreateSprite(11, 2);
         agk::SetSpriteScale(11, 2.f, 2.f);
@@ -72,7 +75,12 @@ void Game::GameLoop()
     if(titleState == false)
     {
         playerOne.MovePlayer();
-        newLevel.CheckForWin(playerOne);
+        if(newLevel.CheckForWin(playerOne) == true)
+        {
+            levelOn++;
+            newLevel.CreateLevel(levelOn);
+            playerOne.RespawnPlayer();
+        }
         //playerOne.CheckPlayerScreenBounds(k);
         
     }
