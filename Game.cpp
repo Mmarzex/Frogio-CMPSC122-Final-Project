@@ -41,7 +41,8 @@ void Game::CreateGame()
     
     title.DrawScreen();
     titleState = true;
-    agk::SetPhysicsGravity(0, 200.f);
+    //agk::SetPhysicsGravity(0, 200.f);
+    agk::SetPhysicsGravity(0, 1000.f);
 }
 
 void Game::GameLoop()

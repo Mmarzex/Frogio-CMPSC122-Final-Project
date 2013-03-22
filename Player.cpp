@@ -55,7 +55,7 @@ void Player::CheckKeyState()
 {
     float speed = 10000.f;
     //float jumpSpeed = 15000.f;
-    float jumpSpeed = 45000.f;
+    float jumpSpeed = 75000.f;
     float x = agk::GetSpriteX(playerID);
     float y = agk::GetSpriteY(playerID);
     

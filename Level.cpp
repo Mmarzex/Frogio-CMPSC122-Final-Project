@@ -14,7 +14,7 @@ using namespace std;
 // LEVEL FILE NAMES
 #define LEVEL_ONE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
 #define LEVEL_TWO "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelTwo.txt"
-#define LEVEL_THREE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
+#define LEVEL_THREE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelThree.txt"
 #define LEVEL_FOUR "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelTwo.txt"
 #define LEVEL_FIVE "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/levelOne.txt"
 
@@ -60,6 +60,8 @@ void Level::LoadTiles(int level)
     int i = 0;
     switch (level) {
         case 1:
+        case 2:
+        case 3:
             // DEBUG ///////
             tileIds[i] = agk::LoadImage("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/air.png");
             //cout << i << endl;
@@ -73,10 +75,6 @@ void Level::LoadTiles(int level)
             //cout << i << endl;
             tileNumber = i;
             //cout << endl << endl;
-            break;
-        case 2:
-            break;
-        case 3:
             break;
         case 4:
             break;
