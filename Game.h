@@ -22,10 +22,19 @@ public:
     void CreateGame();
     void GameLoop();
     void DestroyGame();
+    void SaveHighScore();
 private:
     bool titleState;
     bool levelCreateState;
     int levelOn;
+    
+    int playerGameOverMusic;
+    
+    //TitleScreen title;
+    Player playerOne;
+    Enemy enemyOne;
+    Level newLevel;
+
 };
 
 #endif /* defined(__template__Game__) */

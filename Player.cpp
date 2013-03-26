@@ -8,10 +8,21 @@
 
 #include "Player.h"
 #include <iostream>
+#include <fstream>
+//using std::ofstream;
+//using std::cout;
+//using std::endl;
 
 //#define PLAYERSTARTHEIGHT 535.911f
 #define PLAYERSTARTHEIGHT 368.f
 
+Player::Player()
+{
+    playerState = 0;
+    playerScore = 0;
+    playerLivesLeft = 3;
+    
+}
 
 void Player::CreatePlayer(int id)
 {
@@ -21,20 +32,41 @@ void Player::CreatePlayer(int id)
     agk::SetSpriteScale(playerID, 2.f, 2.f);
     agk::SetSpritePhysicsOn(playerID);
     agk::SetSpritePhysicsCanRotate(playerID, 0);
-    playerState = 0;
-    playerScore = 0;
-    playerLivesLeft = 3;
     midScreenWid = agk::GetVirtualWidth() / 2.0f;
     playerWid = agk::GetSpriteWidth(playerID) / 2.0f;
     playerOffset = midScreenWid + playerWid;
-    
+    totalPlayerScore = 20000;
     //// DEBUG
     std::cout << "Player mass:" << agk::GetSpritePhysicsMass(playerID) << std::endl << std::endl;
+    std::cout << "Player lives: " << playerLivesLeft << std::endl << std::endl;
+}
+
+void Player::SetPlayerName(string name)
+{
+    playerName = name;
 }
 
 int Player::GetID() const
 {
     return playerID;
+}
+
+int Player::GetLives() const
+{
+    return playerLivesLeft;
+}
+
+void Player::DecreaseLives()
+{
+    playerLivesLeft--;
+}
+
+void Player::DisplayScore()
+{
+    agk::PrintC("Total Score: ");
+    agk::Print(totalPlayerScore);
+    agk::PrintC("Level Score: ");
+    agk::Print(playerScore);
 }
 
 void Player::PowerUpPlayer()
@@ -124,3 +156,23 @@ void Player::LevelEndPlayer()
     playerScore = 0;
     agk::DeleteSprite(playerID);
 }
+
+bool Player::LifeCheck()
+{
+    if(playerLivesLeft == 0)
+        return true;
+    else
+        return false;
+}
+
+void Player::ScoresToFile()
+{
+    std::ofstream outfile ("/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/leaderboard.txt", std::ios_base::app);
+    outfile << "Score: " << totalPlayerScore;
+    outfile << " of Player, " << playerName << std::endl;
+    outfile.close();
+}
+
+
+
+

@@ -189,6 +189,7 @@ void Level::DrawTiles()
                 //agk::SetSpritePhysicsMass(tileSprites[numOfTileSprites], 100.f);
                 //agk::FixSpriteToScreen(tileSprites[numOfTileSprites], 1);
                 agk::SetSpritePosition(tileSprites[numOfTileSprites], width, height);
+                maxHeight = height;
             }
             width += (16.f * SCALE);
             //i++;
@@ -199,6 +200,7 @@ void Level::DrawTiles()
         height += (16.f * SCALE);
         width = 0.f;
     }
+    //maxHeight = height;
 }
 
 /*void Level::DrawTiles()
@@ -232,6 +234,18 @@ void Level::DeleteTiles()
     {
         agk::DeleteSprite(tileSprites[i]);
     }
+}
+
+bool Level::CheckForBoundryLose(Player& player)
+{
+    if(agk::GetSpriteY(player.GetID()) >= maxHeight)
+    {
+        // respawn player at start of level
+        player.RespawnPlayer();
+        // decreese player lives
+        player.DecreaseLives();
+    }
+    return true;
 }
 
 bool Level::CheckForWin(Player& player)

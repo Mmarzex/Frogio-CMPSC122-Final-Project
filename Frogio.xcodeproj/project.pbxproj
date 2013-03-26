@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12218C1217014C41003090FA /* leaderboard.txt in Resources */ = {isa = PBXBuildFile; fileRef = 12218C1117014C41003090FA /* leaderboard.txt */; };
+		122D10E91700D717008B3F9B /* Water Level.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 122D10E71700D717008B3F9B /* Water Level.mp3 */; };
+		122D10EA1700D717008B3F9B /* Oh No You Died.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 122D10E81700D717008B3F9B /* Oh No You Died.mp3 */; };
 		12312AEB16E5C59400A25DBB /* Maxs game.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 12312AEA16E5C59400A25DBB /* Maxs game.mp3 */; };
 		12312AF816E5C62C00A25DBB /* Enemy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12312AF316E5C62C00A25DBB /* Enemy.cpp */; };
 		12312AF916E5C62C00A25DBB /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 12312AF416E5C62C00A25DBB /* Game.cpp */; };
@@ -42,6 +45,9 @@
 
 /* Begin PBXFileReference section */
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		12218C1117014C41003090FA /* leaderboard.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = leaderboard.txt; sourceTree = "<group>"; };
+		122D10E71700D717008B3F9B /* Water Level.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Level.mp3"; sourceTree = "<group>"; };
+		122D10E81700D717008B3F9B /* Oh No You Died.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Oh No You Died.mp3"; sourceTree = "<group>"; };
 		12312AEA16E5C59400A25DBB /* Maxs game.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maxs game.mp3"; sourceTree = "<group>"; };
 		12312AED16E5C61B00A25DBB /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		12312AEE16E5C61B00A25DBB /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
@@ -228,6 +234,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				12218C1117014C41003090FA /* leaderboard.txt */,
+				122D10E71700D717008B3F9B /* Water Level.mp3 */,
+				122D10E81700D717008B3F9B /* Oh No You Died.mp3 */,
 				1232581116F0350A00A4A937 /* title_screen_proto.png */,
 				12312B0316E5C65300A25DBB /* Tiles */,
 				12312B0116E5C64700A25DBB /* Enemy_one.png */,
@@ -350,6 +359,9 @@
 				1232581216F0350A00A4A937 /* title_screen_proto.png in Resources */,
 				12FEAF4C16FBF1E60096CE21 /* levelTwo.txt in Resources */,
 				1244A6EE16FBFE69000F904E /* levelThree.txt in Resources */,
+				122D10E91700D717008B3F9B /* Water Level.mp3 in Resources */,
+				122D10EA1700D717008B3F9B /* Oh No You Died.mp3 in Resources */,
+				12218C1217014C41003090FA /* leaderboard.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

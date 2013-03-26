@@ -10,12 +10,13 @@
 #include "TitleScreen.h"
 
 #define PLAYER  1
+#define GAME_OVER_MUSIC 40
 #define NUM_OF_LEVELS 6
 
 TitleScreen title;
-Player playerOne;
-Enemy enemyOne;
-Level newLevel;
+//Player playerOne;
+//Enemy enemyOne;
+//Level newLevel;
 
 void Game::SetLevelMusic(int musicId)
 {
@@ -34,6 +35,7 @@ void Game::SetLevelMusic(int musicId)
 
 void Game::BeginGame()
 {
+    agk::LoadMusic(GAME_OVER_MUSIC, "/Users/maxmarze/Documents/AGK_BETA/AGK/IDE/templates/frogio/Oh No You Died.mp3");
 }
 
 void Game::CreateGame()
@@ -54,6 +56,10 @@ void Game::GameLoop()
     }
     int k;
     //title.CheckInput();
+    
+    // ADD LOADSCREEN NAME AND LOADING
+    
+    
     if (title.GetHasStarted() == true) {
         title.SetHasStarted();
         titleState = false;
@@ -71,11 +77,23 @@ void Game::GameLoop()
         agk::CreateSprite(11, 2);
         agk::SetSpriteScale(11, 2.f, 2.f);
         agk::SetSpritePosition(11, 200.f, 200.f);
+        agk::StartTextInput("Enter a name");
         
     }
     if(titleState == false)
     {
+        if(agk::GetTextInputCompleted() == 1)
+        {
+            string temp = agk::GetTextInput();
+            playerOne.SetPlayerName(temp);
+        }
         playerOne.MovePlayer();
+        playerOne.DisplayScore();
+        if(playerOne.LifeCheck())
+        {
+            agk::PlayMusic(GAME_OVER_MUSIC, 0);
+        }
+        newLevel.CheckForBoundryLose(playerOne);
         if(newLevel.CheckForWin(playerOne) == true)
         {
             levelOn++;
@@ -90,5 +108,7 @@ void Game::GameLoop()
 
 void Game::DestroyGame()
 {
+    // Write top scores to file
+    playerOne.ScoresToFile();
     
 }

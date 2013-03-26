@@ -38,6 +38,7 @@ public:
     void DrawTiles();
     void DeleteTiles();
     bool CheckForWin(Player& player);
+    bool CheckForBoundryLose(Player& player);
     void CreateNextLevel(const string& levelName);
 private:
     int levelId;
@@ -51,5 +52,6 @@ private:
     int numOfTileSprites;
     int columns;
     int maxWidth;
+    int maxHeight;
 };
 #endif /* defined(__template__Level__) */

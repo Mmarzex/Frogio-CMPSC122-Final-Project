@@ -16,6 +16,7 @@ void app::Begin( void )
 {
     agk::SetVirtualResolution ( m_DeviceWidth, m_DeviceHeight );
     myGame.CreateGame();
+    myGame.BeginGame();
 }
 
 // Main loop, called every frame
@@ -27,4 +28,5 @@ void app::Loop ( void )
 // Called when the app ends
 void app::End ( void )
 {
+    myGame.DestroyGame();
 }
